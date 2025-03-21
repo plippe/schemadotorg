@@ -1,0 +1,12 @@
+package build
+import mill._, scalalib._
+
+def scalafmt = mill.scalalib.scalafmt.ScalafmtModule
+
+object schemadotorg extends ScalaModule {
+  def scalaVersion = "3.6.4"
+
+  object test extends ScalaTests with TestModule.Utest {
+    def ivyDeps = Agg(ivy"com.lihaoyi::utest:0.8.5")
+  }
+}
